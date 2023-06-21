@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "555142112037",
+    "project_id": "finalassigment-albertcastano",
+    "storage_bucket": "finalassigment-albertcastano.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555142112037:android:559cb25615da0e70eaf0cc",
+        "android_client_info": {
+          "package_name": "cat.tecnocampus.mobileapps.practicafinal.albertcastanobret"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555142112037-n9a5gp8nt9nt578prug0godaea1u9qm3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClU94hJ01nJOfQSp1WybP7cAxNLZVAZUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555142112037-n9a5gp8nt9nt578prug0godaea1u9qm3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

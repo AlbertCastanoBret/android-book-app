@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">practicafinal.albertcastanobret</string>
+    <string-array name="user_type">
+        <item>Creator</item>
+        <item>Player</item>
+    </string-array>
 </resources>
