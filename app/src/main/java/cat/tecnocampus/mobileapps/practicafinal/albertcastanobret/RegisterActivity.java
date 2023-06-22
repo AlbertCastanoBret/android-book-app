@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        Map<String, Object> user = new HashMap<>();
+                                        /*Map<String, Object> user = new HashMap<>();
                                         user.put("name", nameEditText.getText().toString());
                                         user.put("email", mAuth.getCurrentUser().getEmail());
                                         user.put("userType", userTypeSpinner.getSelectedItem().toString());
@@ -82,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                         AlertDialog dialog = builder.create();
                                                         dialog.show();
                                                     }
-                                                });
+                                                });*/
 
                                     } else {
                                         AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);

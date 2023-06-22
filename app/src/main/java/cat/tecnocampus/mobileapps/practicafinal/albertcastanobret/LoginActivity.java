@@ -94,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                         String role = documentSnapshot.getString("userType");
                         //if(role.equals("Creator")) startActivity(new Intent(LoginActivity.this, CreatorActivity.class).putExtra("id", id));
                         //else if(role.equals("Player")) startActivity(new Intent(LoginActivity.this, PlayerActivity.class).putExtra("id", id));
+                        startActivity(new Intent(LoginActivity.this, UserActivity.class));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
