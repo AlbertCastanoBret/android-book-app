@@ -21,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity {
                 EditText nameEditText = (EditText) findViewById(R.id.registerTextName);
                 EditText emailEditText = (EditText) findViewById(R.id.registerTextEmail);
                 EditText passwordEditText = (EditText) findViewById(R.id.registerTextPassword);
-                Spinner userTypeSpinner = (Spinner) findViewById(R.id.userTypeSpinner);
 
                 if (!nameEditText.getText().toString().isEmpty() && !emailEditText.getText().toString().isEmpty() && !passwordEditText.getText().toString().isEmpty()) {
                     mAuth.createUserWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString())
@@ -59,12 +59,12 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        /*Map<String, Object> user = new HashMap<>();
+                                        Map<String, Object> user = new HashMap<>();
                                         user.put("name", nameEditText.getText().toString());
                                         user.put("email", mAuth.getCurrentUser().getEmail());
-                                        user.put("userType", userTypeSpinner.getSelectedItem().toString());
-                                        user.put("score", 0);
-                                        user.put("numberOfMatches", 0);
+                                        user.put("read", new ArrayList<String>());
+                                        user.put("currently_reading", new ArrayList<String>());
+                                        user.put("want_to_read", new ArrayList<String>());
 
                                         firebaseFirestore.collection("users").document(mAuth.getCurrentUser().getUid())
                                                 .set(user)
@@ -83,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                         AlertDialog dialog = builder.create();
                                                         dialog.show();
                                                     }
-                                                });*/
+                                                });
 
                                     } else {
                                         AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
