@@ -18,16 +18,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
-public class BooksFragment extends Fragment {
+public class MyBooksFragment extends Fragment {
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
-    public BooksFragment() {
+    public MyBooksFragment() {
     }
 
-    public static BooksFragment newInstance(String param1, String param2) {
-        BooksFragment fragment = new BooksFragment();
+    public static MyBooksFragment newInstance(String param1, String param2) {
+        MyBooksFragment fragment = new MyBooksFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -42,7 +42,7 @@ public class BooksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_books, container, false);
+        return inflater.inflate(R.layout.fragment_my_books, container, false);
     }
 
     @Override

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,10 +26,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -69,45 +68,11 @@ public class SearchFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         Setup(view);
-
-
-        RequestQueue queue = Volley.newRequestQueue(getContext());
-        String url = "https://www.googleapis.com/books/v1/volumes?q=flowers";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try{
-                            Gson gson = new Gson();
-                            JSONArray results = response.getJSONArray("items");
-                            String resultsString = results.toString();
-
-                        } catch (Exception e) {
-                            Log.e("TAG", "Error: ", e);
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                });
-
-        request.setRetryPolicy(new DefaultRetryPolicy(
-                10000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-        queue.add(request);
     }
 
 
     private void Setup(View view){
-
         firebaseFirestore.collection("categories").document("BTypTpqaqjRWA6i4xc2o").get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -116,14 +81,34 @@ public class SearchFragment extends Fragment {
                             categories = (ArrayList<String>) documentSnapshot.get("categories");
                             LinearLayout searchLayout = view.findViewById(R.id.searchLayout);
                             for (String category : categories) {
-                                Log.d("Firestore", "Categoría: " + category);
-                                Button button = new Button(getActivity());
-                                button.setText(category);
+                                Button button = CreateButton(category);
                                 searchLayout.addView(button);
+
                             }
                         }
                     }
                 });
 
+    }
+
+    private Button CreateButton(String category){
+        Button button = new Button(requireContext());
+        button.setText(category);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("category", category);
+
+                Fragment booksListFragment = new BooksListFragment();
+                booksListFragment.setArguments(bundle);
+
+                FragmentManager fragmentManager = getParentFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.frame_layout, booksListFragment)
+                        .commit();
+            }
+        });
+        return button;
     }
 }
