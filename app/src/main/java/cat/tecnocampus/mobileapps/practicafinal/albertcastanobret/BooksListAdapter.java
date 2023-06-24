@@ -22,6 +22,7 @@ import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.LazyHeaders;
 import com.google.firebase.firestore.auth.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class BooksListAdapter extends RecyclerView.Adapter<BooksListAdapter.ViewHolder> {
@@ -91,6 +92,10 @@ public class BooksListAdapter extends RecyclerView.Adapter<BooksListAdapter.View
             @Override
             public void onClick(View view, int position) {
                 BookFragment bookFragment = new BookFragment();
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("book", (Serializable) book);
+                bookFragment.setArguments(bundle);
 
                 FragmentTransaction transaction = ((UserActivity) context).getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, bookFragment);

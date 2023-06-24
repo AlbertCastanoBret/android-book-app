@@ -2,7 +2,10 @@ package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Book {
+import java.io.Serializable;
+
+
+public class Book implements Serializable {
     private String id;
     private VolumeInfo volumeInfo;
 
