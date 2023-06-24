@@ -107,7 +107,7 @@ public class BooksListFragment extends Fragment {
     private void SetupAdapter(View view){
         rvListBooks = (RecyclerView) view.findViewById(R.id.rvListBooks);
         rvListBooks.setLayoutManager(new LinearLayoutManager(getContext()));
-        booksListAdapter = new BooksListAdapter(bookList);
+        booksListAdapter = new BooksListAdapter(getContext(), bookList);
         rvListBooks.setAdapter(booksListAdapter);
         booksListAdapter.notifyDataSetChanged();
     }
