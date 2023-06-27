@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 
-public class Book implements Serializable {
+public class Book implements Serializable{
     private String id;
     private VolumeInfo volumeInfo;
 
@@ -16,5 +16,4 @@ public class Book implements Serializable {
     public VolumeInfo getVolumeInfo() {
         return volumeInfo;
     }
-
 }

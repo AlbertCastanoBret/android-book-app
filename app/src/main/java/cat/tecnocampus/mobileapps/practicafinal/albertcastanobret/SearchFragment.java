@@ -106,6 +106,7 @@ public class SearchFragment extends Fragment {
                 FragmentManager fragmentManager = getParentFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.frame_layout, booksListFragment)
+                        .addToBackStack(null)
                         .commit();
             }
         });

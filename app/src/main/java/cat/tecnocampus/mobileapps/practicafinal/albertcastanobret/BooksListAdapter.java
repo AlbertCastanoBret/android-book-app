@@ -1,10 +1,8 @@
 package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
 
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.model.GlideUrl;
-import com.bumptech.glide.load.model.LazyHeaders;
-import com.google.firebase.firestore.auth.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -40,12 +34,10 @@ public class BooksListAdapter extends RecyclerView.Adapter<BooksListAdapter.View
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageView);
+            imageView = itemView.findViewById(R.id.imageView2);
             title = itemView.findViewById(R.id.bookTitleButton);
-            subTitle = itemView.findViewById(R.id.bookSubtitle);
-            authorTitle = itemView.findViewById(R.id.authorTitle);
-
-            // Configurar el OnClickListener para el botón
+            subTitle = itemView.findViewById(R.id.bookSubtitle2);
+            authorTitle = itemView.findViewById(R.id.authorTitle2);
             title.setOnClickListener(this);
         }
 

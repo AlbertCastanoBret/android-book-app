@@ -1,6 +1,8 @@
 package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
 
-public class ImageLinks {
+import java.io.Serializable;
+
+public class ImageLinks implements Serializable {
     private String smallThumbnail;
     private String thumbnail;
 

@@ -1,6 +1,8 @@
 package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
 
-public class VolumeInfo {
+import java.io.Serializable;
+
+public class VolumeInfo implements Serializable {
     private String title;
     private String subtitle;
 
