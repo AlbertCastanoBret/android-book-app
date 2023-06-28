@@ -6,6 +6,10 @@
     <string name="hint_password">Contraseña</string>
     <string name="sign_up_text">REGISTRARSE</string>
     <string name="log_in_text">INICIAR SESIÓN</string>
+    <string name="error_email">El correo electrónico tiene un formato incorrecto</string>
+    <string name="invalid_input">Entrada inválida</string>
+    <string name="empty_email">El campo de correo electrónico está vacío</string>
+    <string name="empty_password">El campo de contraseña está vacío</string>
 
     <string name="hint_name">Nombre</string>
 

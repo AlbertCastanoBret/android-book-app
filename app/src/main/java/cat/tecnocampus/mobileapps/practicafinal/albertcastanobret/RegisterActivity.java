@@ -71,8 +71,8 @@ public class RegisterActivity extends AppCompatActivity {
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void unused) {
-                                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                                        startActivity(intent);
+                                                        onBackPressed();
+                                                        finish();
                                                     }
                                                 })
                                                 .addOnFailureListener(new OnFailureListener() {

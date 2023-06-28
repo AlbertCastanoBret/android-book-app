@@ -1,9 +1,11 @@
 package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -65,11 +67,11 @@ public class LoginActivity extends AppCompatActivity {
 
                                     } else {
                                         if(task.getException().getMessage().contains("email")){
-                                            emailEditText.setError("The email address is badly formatted.");
+                                            emailEditText.setError(getString(R.string.error_email));
                                         }
                                         else{
                                             AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                            builder.setTitle("Invalid input");
+                                            builder.setTitle(getString(R.string.invalid_input));
                                             builder.setMessage(task.getException().getMessage());
                                             AlertDialog dialog = builder.create();
                                             dialog.show();
@@ -81,10 +83,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else{
                     if (emailEditText.getText().toString().isEmpty()){
-                        emailEditText.setError("Email field is empty");
+                        emailEditText.setError(getString(R.string.empty_email));
                     }
                     else if(passwordEditText.getText().toString().isEmpty()){
-                        passwordEditText.setError("Password field is empty");
+                        passwordEditText.setError(getString(R.string.empty_password));
                     }
                 }
             }
@@ -97,10 +99,8 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        String role = documentSnapshot.getString("userType");
-                        //if(role.equals("Creator")) startActivity(new Intent(LoginActivity.this, CreatorActivity.class).putExtra("id", id));
-                        //else if(role.equals("Player")) startActivity(new Intent(LoginActivity.this, PlayerActivity.class).putExtra("id", id));
                         startActivity(new Intent(LoginActivity.this, UserActivity.class));
+                        finish();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

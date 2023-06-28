@@ -6,6 +6,10 @@
     <string name="hint_password">Password</string>
     <string name="sign_up_text">SIGN UP</string>
     <string name="log_in_text">LOG IN</string>
+    <string name="error_email">The email is badly formatted</string>
+    <string name="invalid_input">Invalid input</string>
+    <string name="empty_email">Email field is empty</string>
+    <string name="empty_password">Password field is empty</string>
 
     <string name="hint_name">Name</string>
 
@@ -30,6 +34,7 @@
     <string name="remove_from_my_books">REMOVE FROM MY BOOKS</string>
 
     <string name="by">By:</string>
+
 
     <string name="language">LANGUAGE</string>
     <string name="sign_out_text">SIGN OUT</string>

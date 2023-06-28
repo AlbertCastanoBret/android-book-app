@@ -80,6 +80,7 @@ public class SettingsFragment extends Fragment {
             public void onClick(View view) {
                 mAuth.signOut();
                 getActivity().onBackPressed();
+
             }
         });
     }
