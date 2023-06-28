@@ -82,6 +82,13 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="203dp" />
 
+        <Button
+            android:id="@+id/removeFromMyBooksButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Remove from My Books" />
+
     </LinearLayout>
 
 </RelativeLayout>

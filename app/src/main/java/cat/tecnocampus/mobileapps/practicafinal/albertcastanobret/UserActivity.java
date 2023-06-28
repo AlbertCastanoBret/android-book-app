@@ -10,10 +10,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.databinding.ActivityUserBinding;
 
 public class UserActivity extends AppCompatActivity {
-
     private ActivityUserBinding binding;
 
     @Override
@@ -51,6 +53,18 @@ public class UserActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                Bundle bundle = new Bundle();
+                bundle.putString("argument", query);
+                bundle.putInt("apicall", 1);
+
+                Fragment booksListFragment = new BooksListFragment();
+                booksListFragment.setArguments(bundle);
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.frame_layout, booksListFragment)
+                        .addToBackStack(null)
+                        .commit();
                 return false;
             }
 

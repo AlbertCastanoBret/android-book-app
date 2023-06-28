@@ -98,7 +98,8 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString("category", category);
+                bundle.putString("argument", category);
+                bundle.putInt("apicall", 2);
 
                 Fragment booksListFragment = new BooksListFragment();
                 booksListFragment.setArguments(bundle);

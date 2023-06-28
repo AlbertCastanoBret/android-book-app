@@ -60,15 +60,26 @@ public class BooksListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bookList = new ArrayList<>();
-        Bundle bundle = this.getArguments();
 
-        SetupApi(bundle.getString("category"));
+        Bundle bundle = this.getArguments();
+        if(bundle.getInt("apicall")==0) SetupApiMyBooks(bundle.getStringArrayList("bookslist"));
+        else SetupApiSearch(bundle.getString("argument"), bundle.getInt("apicall"));
         SetupAdapter(view);
     }
 
-    private void SetupApi(String category){
+    private void SetupApiSearch(String argument, int apiCall){
         RequestQueue queue = Volley.newRequestQueue(getContext());
-        String url = "https://www.googleapis.com/books/v1/volumes?q=subject:" + category;
+
+        String url = "";
+
+        switch (apiCall){
+            case 1:
+                url = "https://www.googleapis.com/books/v1/volumes?q=" + argument;
+                break;
+            case 2:
+                url = "https://www.googleapis.com/books/v1/volumes?q=subject:" + argument;
+                break;
+        }
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -101,6 +112,38 @@ public class BooksListFragment extends Fragment {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         queue.add(request);
+    }
+
+    private void SetupApiMyBooks(ArrayList<String> booksList){
+        for(int i=0; i<booksList.size(); i++){
+            RequestQueue queue = Volley.newRequestQueue(getContext());
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "https://www.googleapis.com/books/v1/volumes/" + booksList.get(i), null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                Gson gson = new Gson();
+                                Book book = gson.fromJson(response.toString(), Book.class);
+                                bookList.add(book);
+                                booksListAdapter.notifyDataSetChanged();
+                            } catch (Exception e) {
+                                Log.e("TAG", "Error: ", e);
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("TAG", "Error: " + error);
+                        }
+                    });
+            request.setRetryPolicy(new DefaultRetryPolicy(
+                    10000,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            queue.add(request);
+        }
     }
 
     private void SetupAdapter(View view){

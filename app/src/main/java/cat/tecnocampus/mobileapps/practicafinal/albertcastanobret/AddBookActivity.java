@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -22,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -36,6 +38,8 @@ public class AddBookActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private int indexOption;
     private ImageView leftIcon, imageView, rightIcon;
+
+    private Button removeFromMyBooksButton;
     private TextView title, subtitle, authorTitle;
     private ArrayList<String> optionsList = new ArrayList<>(Arrays.asList("Read", "Currently Reading", "Want to read"));
 
@@ -46,23 +50,20 @@ public class AddBookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_book);
 
         indexOption = -1;
-
         Intent intent = getIntent();
 
         if (intent != null) {
             Book book = (Book) intent.getSerializableExtra("book");
-            Setup(book);
+            SetupActionBar(book);
+            SetupBook(book);
+            SetupRemoveFromMyBooksButton(book);
         }
 
     }
 
-    private void Setup(Book book){
+    private void SetupActionBar(Book book){
         leftIcon = findViewById(R.id.leftIcon);
-        imageView = findViewById(R.id.imageView2);
         rightIcon = findViewById(R.id.rightIcon);
-        title = findViewById(R.id.bookTitle2);
-        subtitle = findViewById(R.id.bookSubtitle2);
-        authorTitle = findViewById(R.id.authorTitle2);
 
         leftIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +115,13 @@ public class AddBookActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void SetupBook(Book book){
+        imageView = findViewById(R.id.imageView2);
+        title = findViewById(R.id.bookTitle2);
+        subtitle = findViewById(R.id.bookSubtitle2);
+        authorTitle = findViewById(R.id.authorTitle2);
 
         Glide.with(getApplicationContext())
                 .load(book.getVolumeInfo().getImageLinks() != null ? book.getVolumeInfo().getImageLinks().getThumbnail() : R.drawable.ic_launcher_background)
@@ -137,5 +145,61 @@ public class AddBookActivity extends AppCompatActivity {
                 indexOption = i;
             }
         });
+    }
+
+    private void SetupRemoveFromMyBooksButton(Book book){
+        removeFromMyBooksButton = findViewById(R.id.removeFromMyBooksButton);
+        removeFromMyBooksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Map<String, Object> updates = new HashMap<>();
+                ArrayList<String> otherKeys = new ArrayList<>(Arrays.asList("read", "currently_reading", "want_to_read"));
+
+                for (String otherKey : otherKeys) {
+                    updates.put(otherKey, FieldValue.arrayRemove(book.getId()));
+                }
+                firebaseFirestore.collection("users").document(mAuth.getCurrentUser().getUid())
+                        .update(updates)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                onBackPressed();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+            }
+        });
+
+        firebaseFirestore.collection("users").document(mAuth.getCurrentUser().getUid())
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            ArrayList<String> readList = (ArrayList<String>) documentSnapshot.get("read");
+                            ArrayList<String> currentlyReadingList = (ArrayList<String>) documentSnapshot.get("currently_reading");
+                            ArrayList<String> wantToReadList = (ArrayList<String>) documentSnapshot.get("want_to_read");
+
+                            if (readList != null && readList.contains(book.getId())) {
+                                removeFromMyBooksButton.setVisibility(View.VISIBLE);
+                            } else if (currentlyReadingList != null && currentlyReadingList.contains(book.getId())) {
+                                removeFromMyBooksButton.setVisibility(View.VISIBLE);
+                            } else if (wantToReadList != null && wantToReadList.contains(book.getId())) {
+                                removeFromMyBooksButton.setVisibility(View.VISIBLE);
+                            } else {
+                                removeFromMyBooksButton.setVisibility(View.GONE);
+                            }
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                    }
+                });
     }
 }
