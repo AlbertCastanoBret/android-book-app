@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,14 +23,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mAuth = FirebaseAuth.getInstance();
         SignUpSetup();
         LogInSetup();
     }
@@ -64,22 +64,28 @@ public class LoginActivity extends AppCompatActivity {
                                         StartApplication(mAuth.getUid());
 
                                     } else {
-                                        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                        builder.setTitle("Invalid input");
-                                        builder.setMessage(task.getException().getMessage());
-                                        AlertDialog dialog = builder.create();
-                                        dialog.show();
+                                        if(task.getException().getMessage().contains("email")){
+                                            emailEditText.setError("The email address is badly formatted.");
+                                        }
+                                        else{
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                                            builder.setTitle("Invalid input");
+                                            builder.setMessage(task.getException().getMessage());
+                                            AlertDialog dialog = builder.create();
+                                            dialog.show();
+                                        }
                                         passwordEditText.setText("");
                                     }
                                 }
                             });
                 }
                 else{
-                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                    builder.setTitle("Invalid Input");
-                    builder.setMessage("Some text field is empty");
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    if (emailEditText.getText().toString().isEmpty()){
+                        emailEditText.setError("Email field is empty");
+                    }
+                    else if(passwordEditText.getText().toString().isEmpty()){
+                        passwordEditText.setError("Password field is empty");
+                    }
                 }
             }
         });
