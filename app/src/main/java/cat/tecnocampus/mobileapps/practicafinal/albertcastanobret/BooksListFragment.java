@@ -1,5 +1,6 @@
 package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -62,6 +63,7 @@ public class BooksListFragment extends Fragment {
         bookList = new ArrayList<>();
 
         Bundle bundle = this.getArguments();
+
         if(bundle.getInt("apicall")==0) SetupApiMyBooks(bundle.getStringArrayList("bookslist"));
         else SetupApiSearch(bundle.getString("argument"), bundle.getInt("apicall"));
         SetupAdapter(view);
