@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="SELECT A SHELF"
+                android:text="@string/select_title"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -95,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Remove from My Books" />
+                android:text="@string/remove_from_my_books" />
 
         </LinearLayout>
     </ScrollView>

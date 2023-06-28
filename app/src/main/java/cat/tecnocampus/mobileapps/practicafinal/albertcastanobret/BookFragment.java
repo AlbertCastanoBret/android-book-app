@@ -73,7 +73,7 @@ public class BookFragment extends Fragment {
         String subtitleText = book.getVolumeInfo().getSubtitle();
         subtitle.setVisibility(TextUtils.isEmpty(subtitleText) ? View.GONE : View.VISIBLE);
         subtitle.setText(subtitleText);
-        authorTitle.setText(book.getVolumeInfo().getAuthors() != null ? "By: " + TextUtils.join(", ", book.getVolumeInfo().getAuthors()) : "By: Unknown");
+        authorTitle.setText(book.getVolumeInfo().getAuthors() != null ? getString(R.string.by) + " " + TextUtils.join(", ", book.getVolumeInfo().getAuthors()) : "By: Unknown");
 
         wantToReadButton.setOnClickListener(new View.OnClickListener() {
             @Override

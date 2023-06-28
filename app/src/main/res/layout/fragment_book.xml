@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:text="Want To Read" />
+            android:text="@string/want_to_read_book" />
     </LinearLayout>
 
 </FrameLayout>

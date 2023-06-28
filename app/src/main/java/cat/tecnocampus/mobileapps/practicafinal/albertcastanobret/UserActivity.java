@@ -10,9 +10,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.databinding.ActivityUserBinding;
 
 public class UserActivity extends AppCompatActivity {
@@ -34,8 +31,8 @@ public class UserActivity extends AppCompatActivity {
                 case R.id.search:
                     ChangeFragment(new SearchFragment());
                     break;
-                case R.id.ranking:
-                    ChangeFragment(new RankingFragment());
+                case R.id.settings:
+                    ChangeFragment(new SettingsFragment());
                     break;
             }
             return true;
@@ -48,7 +45,7 @@ public class UserActivity extends AppCompatActivity {
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.setQueryHint("Title, author or ISBN");
+        searchView.setQueryHint(getString(R.string.hint_query));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

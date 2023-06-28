@@ -1,9 +1,36 @@
 <resources>
     <string name="app_name">practicafinal.albertcastanobret</string>
-    <string-array name="user_type">
-        <item>Creator</item>
-        <item>Player</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="sign_up_text">SIGN UP</string>
+    <string name="log_in_text">LOG IN</string>
+
+    <string name="hint_name">Name</string>
+
+    <string name="hint_query">Title, author or ISBN</string>
+    <string name="books">Books</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+
+    <string name="title_mybooks">SHELVES</string>
+    <string name="read_mybooks">Read:</string>
+    <string name="currently_reading_mybooks">Currently Reading:</string>
+    <string name="want_to_read_mybooks">Want To Read:</string>
+
+    <string name="title_search">EXPLORE BY GENRE</string>
+
+    <string name="title_settings">SETTINGS</string>
+
+    <string name="want_to_read_book">WANT TO READ</string>
+
+    <string name="title_action_bar">Put the book on a shelf</string>
+    <string name="select_title">SELECT A SHELF</string>
+    <string name="remove_from_my_books">REMOVE FROM MY BOOKS</string>
+
+    <string name="by">By:</string>
+
+    <string name="language">LANGUAGE</string>
+    <string name="sign_out_text">SIGN OUT</string>
 </resources>

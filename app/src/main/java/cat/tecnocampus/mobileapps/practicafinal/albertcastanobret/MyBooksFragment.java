@@ -74,9 +74,9 @@ public class MyBooksFragment extends Fragment {
                             List<String> wantToRead = (List<String>) documentSnapshot.get("want_to_read");
 
                             if (read != null && currentlyReading != null && wantToRead != null) {
-                                readButton.setText("Read: " + read.size() + " books");
-                                currentlyReadingButton.setText("Currently Reading: " + currentlyReading.size() + " books");
-                                wantToReadButton.setText("Want to Read: " + wantToRead.size() + " books");
+                                readButton.setText(getString(R.string.read_mybooks) + " " + read.size() + " books");
+                                currentlyReadingButton.setText(getString(R.string.currently_reading_mybooks) + " " + currentlyReading.size() + " books");
+                                wantToReadButton.setText(getString(R.string.want_to_read_mybooks) + " " + wantToRead.size() + " books");
                             }
                         }
                     }

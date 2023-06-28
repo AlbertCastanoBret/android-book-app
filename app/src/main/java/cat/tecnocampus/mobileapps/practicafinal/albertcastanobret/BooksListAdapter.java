@@ -78,7 +78,7 @@ public class BooksListAdapter extends RecyclerView.Adapter<BooksListAdapter.View
         String subtitle = book.getVolumeInfo().getSubtitle();
         holder.subTitle.setVisibility(TextUtils.isEmpty(subtitle) ? View.GONE : View.VISIBLE);
         holder.subTitle.setText(subtitle);
-        holder.authorTitle.setText(book.getVolumeInfo().getAuthors() != null ? "By: " + TextUtils.join(", ", book.getVolumeInfo().getAuthors()) : "By: Unknown");
+        holder.authorTitle.setText(book.getVolumeInfo().getAuthors() != null ? context.getString(R.string.by) + " " + TextUtils.join(", ", book.getVolumeInfo().getAuthors()) : "By: Unknown");
 
         holder.onItemClickListener = new OnItemClickListener() {
             @Override

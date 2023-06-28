@@ -4,13 +4,13 @@
     <item
         android:id="@+id/books"
         android:icon="@drawable/baseline_menu_book_24"
-        android:title="Books" />
+        android:title="@string/books" />
     <item
         android:id="@+id/search"
         android:icon="@drawable/baseline_search_24"
-        android:title="Search" />
+        android:title="@string/search" />
     <item
-        android:id="@+id/ranking"
-        android:icon="@drawable/baseline_format_list_numbered_24"
-        android:title="Ranking" />
+        android:id="@+id/settings"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="@string/settings" />
 </menu>

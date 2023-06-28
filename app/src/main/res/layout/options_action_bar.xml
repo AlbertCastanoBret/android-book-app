@@ -23,7 +23,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
             android:layout_toEndOf="@id/leftIcon"
-            android:text="Put the book on a shelf"
+            android:text="@string/title_action_bar"
             android:textSize="20sp"
             android:id="@+id/text_options_actionbar"/>
 

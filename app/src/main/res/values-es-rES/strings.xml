@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">practicafinal.albertcastanobret</string>
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="sign_up_text">REGISTRARSE</string>
+    <string name="log_in_text">INICIAR SESIÓN</string>
+
+    <string name="hint_name">Nombre</string>
+
+    <string name="hint_query">Título, autor o ISBN</string>
+    <string name="books">Libros</string>
+    <string name="search">Buscar</string>
+    <string name="settings">Configuración</string>
+
+    <string name="title_mybooks">ESTANTERÍAS</string>
+    <string name="read_mybooks">Leídos:</string>
+    <string name="currently_reading_mybooks">Leyendo Actualmente:</string>
+    <string name="want_to_read_mybooks">Quiero Leer:</string>
+
+    <string name="title_search">EXPLORAR POR GÉNERO</string>
+
+    <string name="title_settings">CONFIGURACIÓN</string>
+
+    <string name="want_to_read_book">QUIERO LEER</string>
+
+    <string name="title_action_bar">Colocar el libro en una estantería</string>
+    <string name="select_title">SELECCIONAR UNA ESTANTERÍA</string>
+    <string name="remove_from_my_books">ELIMINAR DE MIS LIBROS</string>
+
+    <string name="by">Por:</string>
+
+    <string name="language">IDIOMA</string>
+    <string name="sign_out_text">CERRAR SESIÓN</string>
+</resources>

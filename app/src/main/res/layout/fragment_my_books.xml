@@ -23,7 +23,7 @@
                 android:layout_marginTop="20sp"
                 android:layout_marginBottom="20sp"
                 android:gravity="center"
-                android:text="SHELVES"
+                android:text="@string/title_mybooks"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
                 android:id="@+id/readButton"
                 android:layout_width="match_parent"
                 android:layout_height="100sp"
-                android:text="Read"
+                android:text="@string/read_mybooks"
                 android:textAllCaps="false"
                 android:textSize="18sp" />
 
@@ -39,7 +39,7 @@
                 android:id="@+id/artButton"
                 android:layout_width="match_parent"
                 android:layout_height="100sp"
-                android:text="Currently Reading"
+                android:text="@string/currently_reading_mybooks"
                 android:textAllCaps="false"
                 android:textSize="18sp" />
 
@@ -47,7 +47,7 @@
                 android:id="@+id/wantToReadButton"
                 android:layout_width="match_parent"
                 android:layout_height="100sp"
-                android:text="Want to Read"
+                android:text="@string/want_to_read_mybooks"
                 android:textAllCaps="false"
                 android:textSize="18sp" />
 

@@ -23,7 +23,7 @@
                 android:layout_marginTop="25sp"
                 android:layout_marginBottom="20sp"
                 android:gravity="center"
-                android:text="EXPLORE BY GENRE"
+                android:text="@string/title_search"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 

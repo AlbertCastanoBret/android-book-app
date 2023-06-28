@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:ems="10"
-            android:hint="Name"
+            android:hint="@string/hint_name"
             android:inputType="textPersonName" />
 
         <EditText
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:ems="10"
-            android:hint="Email"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -38,20 +38,14 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/hint_password"
             android:inputType="textPassword" />
-
-        <Spinner
-            android:id="@+id/userTypeSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:entries="@array/user_type" />
 
         <Button
             android:id="@+id/signUpRegisterButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up" />
+            android:text="@string/sign_up_text" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
