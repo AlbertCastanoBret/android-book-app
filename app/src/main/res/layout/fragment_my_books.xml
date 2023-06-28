@@ -7,46 +7,51 @@
     tools:context=".MyBooksFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="25sp"
-        android:clipToPadding="true"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:gravity="center"
-            android:text="SHELVES"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/readButton"
-            android:layout_width="match_parent"
-            android:layout_height="100sp"
-            android:text="Read"
-            android:textAllCaps="false"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="20sp"
+                android:gravity="center"
+                android:text="SHELVES"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/artButton"
-            android:layout_width="match_parent"
-            android:layout_height="100sp"
-            android:text="Currently Reading"
-            android:textAllCaps="false"
-            android:textSize="18sp" />
+            <Button
+                android:id="@+id/readButton"
+                android:layout_width="match_parent"
+                android:layout_height="100sp"
+                android:text="Read"
+                android:textAllCaps="false"
+                android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/wantToReadButton"
-            android:layout_width="match_parent"
-            android:layout_height="100sp"
-            android:text="Want to Read"
-            android:textAllCaps="false"
-            android:textSize="18sp" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/artButton"
+                android:layout_width="match_parent"
+                android:layout_height="100sp"
+                android:text="Currently Reading"
+                android:textAllCaps="false"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/wantToReadButton"
+                android:layout_width="match_parent"
+                android:layout_height="100sp"
+                android:text="Want to Read"
+                android:textAllCaps="false"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
