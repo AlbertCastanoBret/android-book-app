@@ -35,7 +35,10 @@
 
     <string name="by">By:</string>
 
-
     <string name="language">LANGUAGE</string>
     <string name="sign_out_text">SIGN OUT</string>
+
+    <string name="title_language">Select a language</string>
+    <string name="english">English</string>
+    <string name="spanish">Spanish</string>
 </resources>

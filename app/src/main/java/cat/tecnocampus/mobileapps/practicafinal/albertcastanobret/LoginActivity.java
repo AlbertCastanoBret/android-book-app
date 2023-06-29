@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,16 +25,31 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
-
+    private UserSettings userSettings;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        userSettings = (UserSettings) getApplication();
+        LoadPreferences();
+
         setContentView(R.layout.activity_login);
+
         SignUpSetup();
         LogInSetup();
+
+    }
+
+    private void LoadPreferences(){
+        LanguageManager languageManager = new LanguageManager(this);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(UserSettings.PREFERENCES, MODE_PRIVATE);
+        String currentLanguage = sharedPreferences.getString(UserSettings.CURRENT_LANGUAGE, UserSettings.ENGLISH);
+        userSettings.setCurrentLanguage(currentLanguage);
+
+        languageManager.updateResource(currentLanguage);
     }
 
     private void SignUpSetup() {
