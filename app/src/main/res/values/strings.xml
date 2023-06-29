@@ -28,6 +28,7 @@
     <string name="title_settings">SETTINGS</string>
 
     <string name="want_to_read_book">WANT TO READ</string>
+    <string name="description">DESCRIPTION</string>
 
     <string name="title_action_bar">Put the book on a shelf</string>
     <string name="select_title">SELECT A SHELF</string>

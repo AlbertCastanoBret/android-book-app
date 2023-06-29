@@ -28,6 +28,7 @@
     <string name="title_settings">CONFIGURACIÓN</string>
 
     <string name="want_to_read_book">QUIERO LEER</string>
+    <string name="description">DESCRIPCIÓN</string>
 
     <string name="title_action_bar">Colocar el libro en una estantería</string>
     <string name="select_title">SELECCIONAR UNA ESTANTERÍA</string>

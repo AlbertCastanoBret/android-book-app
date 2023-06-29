@@ -3,6 +3,7 @@ package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -73,7 +74,8 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 mAuth.signOut();
-                requireActivity().onBackPressed();
+                getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
+                getActivity().finish();
             }
         });
     }

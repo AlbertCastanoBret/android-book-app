@@ -1,6 +1,7 @@
 package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,9 +20,9 @@ import com.bumptech.glide.Glide;
 
 public class BookFragment extends Fragment {
 
-    private ImageView imageView;
+    private ImageView imageView, storeView, preview;
     private Button wantToReadButton;
-    private TextView title, subtitle, authorTitle;
+    private TextView title, subtitle, authorTitle, description;
 
 
     public BookFragment() {
@@ -63,6 +64,9 @@ public class BookFragment extends Fragment {
         subtitle = view.findViewById(R.id.bookSubtitleFragment);
         authorTitle = view.findViewById(R.id.bookAuthorFragment);
         wantToReadButton = view.findViewById(R.id.wantToReadFragmentButton);
+        storeView = view.findViewById(R.id.storeIcon);
+        preview = view.findViewById(R.id.previewIcon);
+        description = view.findViewById(R.id.descriptionText);
 
         Glide.with(getContext())
                 .load(book.getVolumeInfo().getImageLinks() != null ? book.getVolumeInfo().getImageLinks().getThumbnail() : R.drawable.ic_launcher_background)
@@ -81,5 +85,25 @@ public class BookFragment extends Fragment {
                 startActivity(new Intent(getActivity(), AddBookActivity.class).putExtra("book", book));
             }
         });
+
+        storeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(book.getVolumeInfo().getInfoLink()));
+                startActivity(intent);
+            }
+        });
+
+        preview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(book.getVolumeInfo().getPreviewLink()));
+                startActivity(intent);
+            }
+        });
+
+        description.setText(book.getVolumeInfo().getDescription());
     }
 }
