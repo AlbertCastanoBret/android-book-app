@@ -42,4 +42,9 @@
     <string name="title_language">Selecciona un idioma</string>
     <string name="english">Inglés</string>
     <string name="spanish">Español</string>
+
+    <string name="log_out_title">Cerrar sesión</string>
+    <string name="log_out_subtitle">¿Estás seguro de que deseas cerrar sesión?</string>
+    <string name="log_out_yes">SÍ</string>
+    <string name="log_out_no">NO</string>
 </resources>

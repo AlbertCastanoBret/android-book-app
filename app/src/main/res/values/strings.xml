@@ -42,4 +42,10 @@
     <string name="title_language">Select a language</string>
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
+
+    <string name="log_out_title">Sign Out</string>
+    <string name="log_out_subtitle">Are you sure you want to sign out?</string>
+    <string name="log_out_yes">YES</string>
+    <string name="log_out_no">NO</string>
+    
 </resources>
