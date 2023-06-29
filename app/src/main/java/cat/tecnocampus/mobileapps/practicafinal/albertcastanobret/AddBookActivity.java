@@ -41,8 +41,7 @@ public class AddBookActivity extends AppCompatActivity {
 
     private Button removeFromMyBooksButton;
     private TextView title, subtitle, authorTitle;
-    private ArrayList<String> optionsList = new ArrayList<>(Arrays.asList("Read", "Currently Reading", "Want to read"));
-
+    private ArrayList<String> optionsList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +50,7 @@ public class AddBookActivity extends AppCompatActivity {
 
         indexOption = -1;
         Intent intent = getIntent();
+        optionsList = new ArrayList<>(Arrays.asList(getString(R.string.read_mybooks), getString(R.string.currently_reading_mybooks), getString(R.string.want_to_read_mybooks)));
 
         if (intent != null) {
             Book book = (Book) intent.getSerializableExtra("book");

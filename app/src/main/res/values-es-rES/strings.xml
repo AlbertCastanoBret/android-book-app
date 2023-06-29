@@ -19,9 +19,9 @@
     <string name="settings">Configuración</string>
 
     <string name="title_mybooks">ESTANTERÍAS</string>
-    <string name="read_mybooks">Leídos:</string>
-    <string name="currently_reading_mybooks">Leyendo Actualmente:</string>
-    <string name="want_to_read_mybooks">Quiero Leer:</string>
+    <string name="read_mybooks">Leídos</string>
+    <string name="currently_reading_mybooks">Leyendo Actualmente</string>
+    <string name="want_to_read_mybooks">Quiero Leer</string>
 
     <string name="title_search">EXPLORAR POR GÉNERO</string>
 

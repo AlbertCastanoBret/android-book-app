@@ -22,7 +22,7 @@ public class BookFragment extends Fragment {
 
     private ImageView imageView, storeView, preview;
     private Button wantToReadButton;
-    private TextView title, subtitle, authorTitle, description;
+    private TextView title, subtitle, authorTitle, descriptionTitle, description;
 
 
     public BookFragment() {
@@ -66,6 +66,7 @@ public class BookFragment extends Fragment {
         wantToReadButton = view.findViewById(R.id.wantToReadFragmentButton);
         storeView = view.findViewById(R.id.storeIcon);
         preview = view.findViewById(R.id.previewIcon);
+        descriptionTitle = view.findViewById(R.id.descriptionTitle);
         description = view.findViewById(R.id.descriptionText);
 
         Glide.with(getContext())
@@ -104,6 +105,9 @@ public class BookFragment extends Fragment {
             }
         });
 
-        description.setText(book.getVolumeInfo().getDescription());
+        String descriptionText = book.getVolumeInfo().getDescription();
+        descriptionTitle.setVisibility(TextUtils.isEmpty(descriptionText) ? View.GONE : View.VISIBLE);
+        description.setText(descriptionText);
+
     }
 }

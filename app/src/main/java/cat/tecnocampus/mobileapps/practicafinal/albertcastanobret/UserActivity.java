@@ -7,7 +7,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -24,7 +26,20 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         binding = ActivityUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        ChangeFragment(new MyBooksFragment());
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor = preferences.edit();
+        String fragment = preferences.getString("fragment", "");
+
+        if(fragment.equals("settings")){
+            ChangeFragment(new SettingsFragment());
+            editor.putString("fragment", "mybooks");
+            editor.apply();
+        }
+        else{
+            ChangeFragment(new MyBooksFragment());
+        }
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){

@@ -71,7 +71,6 @@ public class SearchFragment extends Fragment {
         Setup(view);
     }
 
-
     private void Setup(View view){
         firebaseFirestore.collection("categories").document("BTypTpqaqjRWA6i4xc2o").get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -81,8 +80,11 @@ public class SearchFragment extends Fragment {
                             categories = (ArrayList<String>) documentSnapshot.get("categories");
                             LinearLayout searchLayout = view.findViewById(R.id.searchLayout);
                             for (String category : categories) {
-                                Button button = CreateButton(category);
-                                searchLayout.addView(button);
+                                if(isAdded()){
+                                    Button button = CreateButton(category);
+                                    searchLayout.addView(button);
+                                    searchLayout.setPadding(40, 0, 40, 0);
+                                }
 
                             }
                         }
@@ -93,6 +95,7 @@ public class SearchFragment extends Fragment {
 
     private Button CreateButton(String category){
         Button button = new Button(requireContext());
+        button.setHeight(80);
         button.setText(category);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

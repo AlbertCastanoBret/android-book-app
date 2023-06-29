@@ -87,7 +87,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/descriptionTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -96,12 +96,14 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/descriptionText3"
+                    android:id="@+id/descriptionText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="26dp"
                     android:paddingTop="8dp"
-                    android:paddingRight="26dp" />
+                    android:paddingRight="26dp"
+                    android:textAlignment="viewStart"
+                    android:justificationMode="inter_word"/>
 
             </LinearLayout>
         </ScrollView>

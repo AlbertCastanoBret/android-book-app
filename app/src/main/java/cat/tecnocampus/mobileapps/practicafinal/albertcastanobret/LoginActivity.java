@@ -40,6 +40,11 @@ public class LoginActivity extends AppCompatActivity {
         SignUpSetup();
         LogInSetup();
 
+        if(mAuth.getCurrentUser() != null){
+            startActivity(new Intent(LoginActivity.this, UserActivity.class));
+            finish();
+        }
+
     }
 
     private void LoadPreferences(){

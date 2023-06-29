@@ -62,6 +62,13 @@ public class SettingsFragment extends Fragment {
                                 editor.apply();
 
                                 languageManager.updateResource(languageCodes[i]);
+
+                                SharedPreferences preferences = requireContext().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor2 = preferences.edit();
+                                editor2 = preferences.edit();
+                                editor2.putString("fragment", "settings");
+                                editor2.apply();
+
                                 requireActivity().recreate();
                             }
                         })
