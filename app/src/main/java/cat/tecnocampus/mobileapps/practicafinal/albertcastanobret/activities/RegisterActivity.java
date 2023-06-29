@@ -1,17 +1,13 @@
-package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
+package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,6 +20,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.R;
 
 public class RegisterActivity extends AppCompatActivity {
 

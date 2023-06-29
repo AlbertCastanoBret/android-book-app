@@ -4,7 +4,7 @@
     android:id="@+id/shelvesFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyBooksFragment">
+    tools:context=".fragments.MyBooksFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView

@@ -1,6 +1,8 @@
-package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
+package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.domain;
 
 import java.io.Serializable;
+
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.domain.ImageLinks;
 
 public class VolumeInfo implements Serializable {
     private String title;

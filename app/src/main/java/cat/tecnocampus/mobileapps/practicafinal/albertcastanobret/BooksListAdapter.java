@@ -19,6 +19,10 @@ import com.bumptech.glide.Glide;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.activities.UserActivity;
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.domain.Book;
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.fragments.BookFragment;
+
 public class BooksListAdapter extends RecyclerView.Adapter<BooksListAdapter.ViewHolder> {
     public interface OnItemClickListener {
         void onClick(View view, int position);

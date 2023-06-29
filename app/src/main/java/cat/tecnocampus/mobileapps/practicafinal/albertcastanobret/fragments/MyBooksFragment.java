@@ -1,4 +1,4 @@
-package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
+package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.fragments;
 
 import android.os.Bundle;
 
@@ -19,6 +19,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.R;
 
 public class MyBooksFragment extends Fragment {
 
@@ -75,9 +77,9 @@ public class MyBooksFragment extends Fragment {
 
                             if (read != null && currentlyReading != null && wantToRead != null) {
                                 if (isAdded()) {
-                                    readButton.setText(getString(R.string.read_mybooks) + ": " + read.size() + " libros");
-                                    currentlyReadingButton.setText(getString(R.string.currently_reading_mybooks) + ": " + currentlyReading.size() + " libros");
-                                    wantToReadButton.setText(getString(R.string.want_to_read_mybooks) + ": " + wantToRead.size() + " libros");
+                                    readButton.setText(getString(R.string.read_mybooks) + ": " + read.size() + " " + getString(R.string.books));
+                                    currentlyReadingButton.setText(getString(R.string.currently_reading_mybooks) + ": " + currentlyReading.size() + " " + getString(R.string.books));
+                                    wantToReadButton.setText(getString(R.string.want_to_read_mybooks) + ": " + wantToRead.size() + " " + getString(R.string.books));
                                 }
                             }
                         }

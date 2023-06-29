@@ -1,4 +1,4 @@
-package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
+package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.fragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +17,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.domain.Book;
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.R;
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.activities.AddBookActivity;
 
 public class BookFragment extends Fragment {
 

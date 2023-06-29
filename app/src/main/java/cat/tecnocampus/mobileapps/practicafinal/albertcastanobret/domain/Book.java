@@ -1,6 +1,4 @@
-package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
-
-import com.google.gson.annotations.SerializedName;
+package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.domain;
 
 import java.io.Serializable;
 

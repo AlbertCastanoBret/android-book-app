@@ -1,7 +1,5 @@
-package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret;
+package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.fragments;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -29,6 +27,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.BooksListAdapter;
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.R;
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.domain.Book;
 
 public class BooksListFragment extends Fragment {
     private ArrayList<Book> bookList;
