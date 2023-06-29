@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -71,7 +73,7 @@ public class SearchFragment extends Fragment {
         Setup(view);
     }
 
-    private void Setup(View view){
+    private void Setup(View view) {
         firebaseFirestore.collection("categories").document("BTypTpqaqjRWA6i4xc2o").get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -79,24 +81,32 @@ public class SearchFragment extends Fragment {
                         if (documentSnapshot.exists()) {
                             categories = (ArrayList<String>) documentSnapshot.get("categories");
                             LinearLayout searchLayout = view.findViewById(R.id.searchLayout);
-                            for (String category : categories) {
-                                if(isAdded()){
-                                    Button button = CreateButton(category);
-                                    searchLayout.addView(button);
-                                    searchLayout.setPadding(40, 0, 40, 0);
+                            if (isAdded()) {
+                                for (String category : categories) {
+                                    if (isAdded()) {
+                                        Button button = CreateButton(category);
+                                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                                LinearLayout.LayoutParams.WRAP_CONTENT
+                                        );
+                                        layoutParams.setMargins(0, 10, 0, 10);
+                                        button.setLayoutParams(layoutParams);
+                                        searchLayout.addView(button);
+                                    }
                                 }
-
+                                searchLayout.setPadding(40, 0, 40, 0);
                             }
                         }
                     }
                 });
-
     }
 
     private Button CreateButton(String category){
         Button button = new Button(requireContext());
         button.setHeight(80);
         button.setText(category);
+        button.setTextColor(ContextCompat.getColor(getActivity(), R.color.white));
+        button.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.custom_beige));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
