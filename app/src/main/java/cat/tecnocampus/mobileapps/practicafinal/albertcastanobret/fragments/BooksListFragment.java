@@ -1,5 +1,7 @@
 package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 

@@ -1,4 +1,4 @@
-package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.domain;
+package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.fragments;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -37,6 +37,7 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         Setup(view);
+
         return view;
     }
 

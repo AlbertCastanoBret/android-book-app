@@ -2,22 +2,26 @@ package cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.R;
 import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.databinding.ActivityUserBinding;
-import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.domain.SettingsFragment;
 import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.fragments.BooksListFragment;
 import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.fragments.MyBooksFragment;
 import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.fragments.SearchFragment;
+import cat.tecnocampus.mobileapps.practicafinal.albertcastanobret.fragments.SettingsFragment;
 
 public class UserActivity extends AppCompatActivity {
     private ActivityUserBinding binding;
