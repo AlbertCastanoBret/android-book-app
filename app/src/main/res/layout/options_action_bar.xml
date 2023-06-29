@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/purple_500"
-    android:id="@+id/options_action_bar">
+    android:id="@+id/options_action_bar"
+    style="@style/options_action_bar">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@drawable/baseline_clear_24" />
+            android:src="@drawable/baseline_clear_24"
+            style="@style/options_action_bar"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,7 +26,8 @@
             android:layout_toEndOf="@id/leftIcon"
             android:text="@string/title_action_bar"
             android:textSize="20sp"
-            android:id="@+id/text_options_actionbar"/>
+            android:id="@+id/text_options_actionbar"
+            style="@style/options_action_bar"/>
 
         <ImageView
             android:id="@+id/rightIcon"
@@ -33,7 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/baseline_check_24" />
+            android:src="@drawable/baseline_check_24"
+            style="@style/options_action_bar"/>
 
     </RelativeLayout>
 
