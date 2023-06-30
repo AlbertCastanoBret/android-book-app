@@ -87,10 +87,10 @@ public class BooksListFragment extends Fragment {
 
         switch (apiCall){
             case 1:
-                url = "https://www.googleapis.com/books/v1/volumes?q=" + argument;
+                url = "https://www.googleapis.com/books/v1/volumes?q=" + argument + "&key=AIzaSyDsCfcPz0LG0v_EfFzrAFFBIOZu4ufTY4c";
                 break;
             case 2:
-                url = "https://www.googleapis.com/books/v1/volumes?q=subject:" + argument;
+                url = "https://www.googleapis.com/books/v1/volumes?q=subject:" + argument + "&key=AIzaSyDsCfcPz0LG0v_EfFzrAFFBIOZu4ufTY4c";
                 break;
         }
 
