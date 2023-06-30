@@ -57,7 +57,7 @@ public class MyBooksFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         readButton = (Button) view.findViewById(R.id.readButton);
-        currentlyReadingButton = (Button) view.findViewById(R.id.artButton);
+        currentlyReadingButton = (Button) view.findViewById(R.id.currentlyReadingButton);
         wantToReadButton = (Button) view.findViewById(R.id.wantToReadButton);
 
         LoadBooks();
